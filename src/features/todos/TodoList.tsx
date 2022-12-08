@@ -81,32 +81,32 @@ const TodoList = () => {
 
                                         {filters.map((section) => (
                                             <div key={section.id} className="border-t border-gray-200 px-4 py-6">
-                                                    <>
-                                                        <h3 className="-mx-2 -my-3 flow-root">
-                                                        </h3>
-                                                        <div className="space-y-6">
-                                                            {section.options.map((option, optionIdx) => (
-                                                                <div key={option.value} className="flex items-center">
-                                                                    <button type="button" onClick={() => setSort(option.value)}>
-                                                                        <input
-                                                                            id={`filter-mobile-${section.id}-${optionIdx}`}
-                                                                            name={`${section.id}[]`}
-                                                                            defaultValue={option.value}
-                                                                            type="checkbox"
-                                                                            defaultChecked={option.checked}
-                                                                            className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                                                                        />
-                                                                        <label
-                                                                            htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                                                            className="ml-3 min-w-0 flex-1 text-gray-500"
-                                                                        >
-                                                                            {option.label}
-                                                                        </label>
-                                                                    </button>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </>
+                                                <>
+                                                    <h3 className="-mx-2 -my-3 flow-root">
+                                                    </h3>
+                                                    <div className="space-y-6">
+                                                        {section.options.map((option, optionIdx) => (
+                                                            <div key={option.value} className="flex items-center">
+                                                                <button type="button" onClick={() => setSort(option.value)}>
+                                                                    <input
+                                                                        id={`filter-mobile-${section.id}-${optionIdx}`}
+                                                                        name={`${section.id}[]`}
+                                                                        defaultValue={option.value}
+                                                                        type="checkbox"
+                                                                        defaultChecked={option.checked}
+                                                                        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                                    />
+                                                                    <label
+                                                                        htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
+                                                                        className="ml-3 min-w-0 flex-1 text-gray-500"
+                                                                    >
+                                                                        {option.label}
+                                                                    </label>
+                                                                </button>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </>
                                             </div>
                                         ))}
                                     </form>
