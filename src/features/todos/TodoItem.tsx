@@ -3,13 +3,13 @@ import { CheckIcon, TrashIcon } from '@heroicons/react/20/solid'
 import { Todo } from "./todosSlice";
 
 type TodoItemProps = {
-    todo: Todo,
-    removeTodo: (id: string) => void,
-    completeTodo: (id: string) => void,
+  todo: Todo,
+  removeTodo: (id: string) => void,
+  completeTodo: (id: string) => void,
 }
 
 const TodoItem = (props: TodoItemProps) => {
-    const { todo, removeTodo, completeTodo } = props;
+  const { todo, removeTodo, completeTodo } = props;
 
 
   const inputRef = useRef(null);
@@ -37,7 +37,7 @@ const TodoItem = (props: TodoItemProps) => {
               className="m-2 inline-flex items-center rounded-full border border-transparent bg-green-600 p-1.5 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
 
             >
-              <CheckIcon className="h-5 w-5" aria-hidden="true"/>
+              <CheckIcon className="h-5 w-5" aria-hidden="true" />
             </button>
           )}
 

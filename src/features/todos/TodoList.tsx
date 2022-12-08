@@ -1,9 +1,10 @@
+import React from 'react';
 import { Fragment, useState } from 'react'
-import { Dialog, Disclosure, Transition } from '@headlessui/react'
+import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { FunnelIcon } from '@heroicons/react/20/solid'
 import { connect } from "react-redux";
-import { useAppDispatch, useAppSelector} from "../../app/hooks";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { completeTodo, removeTodo, selectTodos } from "./todosSlice";
 import TodoItem from "./TodoItem";
 
@@ -28,8 +29,8 @@ const TodoList = () => {
     const [sort, setSort] = useState("active");
 
 
-    const deleteTodo = (id: string) => {dispatch(removeTodo(id))};
-    const checkTodo = (id: string) => {dispatch(completeTodo(id))};
+    const deleteTodo = (id: string) => { dispatch(removeTodo(id)) };
+    const checkTodo = (id: string) => { dispatch(completeTodo(id)) };
 
 
     return (
@@ -79,8 +80,7 @@ const TodoList = () => {
 
 
                                         {filters.map((section) => (
-                                            <Disclosure as="div" key={section.id} className="border-t border-gray-200 px-4 py-6">
-                                                {({ open }) => (
+                                            <div key={section.id} className="border-t border-gray-200 px-4 py-6">
                                                     <>
                                                         <h3 className="-mx-2 -my-3 flow-root">
                                                         </h3>
@@ -107,8 +107,7 @@ const TodoList = () => {
                                                             ))}
                                                         </div>
                                                     </>
-                                                )}
-                                            </Disclosure>
+                                            </div>
                                         ))}
                                     </form>
                                 </Dialog.Panel>
@@ -143,28 +142,26 @@ const TodoList = () => {
                                 <h3 className="sr-only">Status</h3>
 
                                 {filters.map((section) => (
-                                    <Disclosure as="div" key={section.id} className="border-b border-gray-200 py-6">
-                                        {({ open }) => (
-                                            <>
-                                                <h2 >
-                                                    {section.name}
-                                                </h2>
-                                                <div className="space-y-4 mt-2">
-                                                    {section.options.map((option, optionIdx) => (
-                                                        <div key={option.value} className="items-center">
-                                                            <button
-                                                                type="button"
-                                                                className="w-full items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                                                                onClick={() => setSort(option.value)}
-                                                            >
-                                                                <span>{option.value}</span>
-                                                            </button>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </>
-                                        )}
-                                    </Disclosure>
+                                    <div key={section.id} className="border-b border-gray-200 py-6">
+                                        <>
+                                            <h2 >
+                                                {section.name}
+                                            </h2>
+                                            <div className="space-y-4 mt-2">
+                                                {section.options.map((option) => (
+                                                    <div key={option.value} className="items-center">
+                                                        <button
+                                                            type="button"
+                                                            className="w-full items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+                                                            onClick={() => setSort(option.value)}
+                                                        >
+                                                            <span>{option.value}</span>
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </>
+                                    </div>
                                 ))}
                             </form>
 
