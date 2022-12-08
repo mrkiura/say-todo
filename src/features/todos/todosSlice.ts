@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from "../../app/store";
 
 
-export interface Todo {
+export type Todo = {
     id: string;
     item: string;
     completed: boolean;
 }
 
-export interface TodosState {
+export type TodosState = {
   todos: Array<Todo>;
 }
 
