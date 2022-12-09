@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { addTodo, Todo } from "./todosSlice";
+import { addTodo } from "./todosSlice";
 import { BookmarkIcon, CalendarIcon } from '@heroicons/react/20/solid'
 
 
