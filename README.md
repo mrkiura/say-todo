@@ -2,7 +2,8 @@
 
 A todo application allowing users to add, complete and delete todos.
 
-You can try out the app [here](https://6391b367629073665e257f14--moonlit-fairy-11b2a1.netlify.app/)
+You can try out the app [here](https://moonlit-fairy-11b2a1.netlify.app)
+
 
 ## Setup
 
