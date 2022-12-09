@@ -82,8 +82,6 @@ const TodoList = () => {
                                         {filters.map((section) => (
                                             <div key={section.id} className="border-t border-gray-200 px-4 py-6">
                                                 <>
-                                                    <h3 className="-mx-2 -my-3 flow-root">
-                                                    </h3>
                                                     <div className="space-y-6">
                                                         {section.options.map((option, optionIdx) => (
                                                             <div key={option.value} className="flex items-center">
@@ -92,7 +90,7 @@ const TodoList = () => {
                                                                         id={`filter-mobile-${section.id}-${optionIdx}`}
                                                                         name={`${section.id}[]`}
                                                                         defaultValue={option.value}
-                                                                        type="checkbox"
+                                                                        type="radio"
                                                                         defaultChecked={option.checked}
                                                                         className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                                                     />
@@ -148,14 +146,23 @@ const TodoList = () => {
                                                 {section.name}
                                             </h2>
                                             <div className="space-y-4 mt-2">
-                                                {section.options.map((option) => (
-                                                    <div key={option.value} className="items-center">
-                                                        <button
-                                                            type="button"
-                                                            className="w-full items-center space-x-2 rounded-r-md border border-gray-300 bg-gray-50 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-                                                            onClick={() => setSort(option.value)}
-                                                        >
-                                                            <span>{option.value}</span>
+                                                {section.options.map((option, optionIdx) => (
+                                                    <div key={option.value} className="flex items-center">
+                                                        <button type="button" onClick={() => setSort(option.value)}>
+                                                            <input
+                                                                id={`filter-${section.id}-${optionIdx}`}
+                                                                name={`${section.id}[]`}
+                                                                defaultValue={option.value}
+                                                                type="radio"
+                                                                defaultChecked={option.checked}
+                                                                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                                            />
+                                                            <label
+                                                                htmlFor={`filter-${section.id}-${optionIdx}`}
+                                                                className="ml-3 min-w-0 flex-1 text-gray-500"
+                                                            >
+                                                                {option.label}
+                                                            </label>
                                                         </button>
                                                     </div>
                                                 ))}
