@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from "../../app/store";
-
+import { v4 as uuidv4 } from 'uuid';
 
 export type Todo = {
     id: string;
@@ -14,17 +14,17 @@ export type TodosState = {
 
 const initialState: TodosState = {
   todos: []
-} as TodosState;
+};
 
 
 export const todosSlice = createSlice({
   name: 'todos',
   initialState,
   reducers: {
-    addTodo: (state, action: PayloadAction<Todo>) => {
+    addTodo: (state, action: PayloadAction<string>) => {
       return {
         ...state,
-        todos: [...state.todos, action.payload]
+        todos: [...state.todos, {id: uuidv4(), item: action.payload, completed: false}]
       };
     },
 

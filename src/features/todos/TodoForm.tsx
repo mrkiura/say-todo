@@ -6,7 +6,7 @@ import { BookmarkIcon, CalendarIcon } from '@heroicons/react/20/solid'
 
 const TodoForm = () => {
   const dispatch = useAppDispatch()
-  const createTodo = (todo: Todo) => dispatch(addTodo(todo))
+  const createTodo = (todo: string) => dispatch(addTodo(todo))
   const [todo, setTodo] = useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,12 +17,7 @@ const TodoForm = () => {
     if (todo === "") {
       alert("Careful! You can't add an empty todo!");
     } else {
-      const todoId = Math.floor(Math.random() * 1000)
-      createTodo({
-        id: todoId.toString(),
-        item: todo,
-        completed: false,
-      });
+      createTodo(todo);
       setTodo("");
     }
   };
