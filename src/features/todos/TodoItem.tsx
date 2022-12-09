@@ -24,6 +24,7 @@ const TodoItem = (props: TodoItemProps) => {
           className="w-4/6 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           ref={inputRef}
           defaultValue={todo.item}
+          disabled={true}
           style={{
             textDecoration: todo.completed ? 'line-through' : 'none',
           }}
